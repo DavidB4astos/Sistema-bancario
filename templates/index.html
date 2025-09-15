@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Banco Simples</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="app" role="application" aria-label="Banco Simples">
+    <header>
+      <div class="title">Banco Simples</div>
+      <div class="badge">Limite por saque: R$ 500,00 • 3 saques/dia</div>
+    </header>
+
+    <div class="grid grid-2">
+      <div class="card">
+        <div class="label">Saldo atual</div>
+        <div id="saldoView" class="value">R$ 0,00</div>
+      </div>
+      <div class="card">
+        <div class="label">Saques restantes (hoje)</div>
+        <div id="saquesView" class="value">3</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:12px">
+      <div class="label">Operações</div>
+      <div class="grid" style="margin-top:8px">
+        <input id="valorInput" type="text" inputmode="decimal" placeholder="Valor (ex.: 150,00)" />
+        <div class="row">
+          <button id="depositarBtn" class="b-primary">Depositar</button>
+          <button id="sacarBtn" class="b-warn">Sacar</button>
+          <button id="extratoBtn">Mostrar Extrato</button>
+          <button id="resetBtn" class="b-danger">Resetar</button>
+        </div>
+        <div id="mensagem" class="msg" style="display:none"></div>
+      </div>
+    </div>
+
+    <details id="extratoBox" style="margin-top:12px">
+      <summary><strong>Extrato</strong></summary>
+      <div id="extratoView" class="muted" style="margin-top:8px">Não foram realizadas operações.</div>
+    </details>
+
+    <div class="footer">Regras: valor &gt; 0 • Saque não pode exceder saldo, nem R$ 500,00, nem 3 saques no dia.</div>
+  </div>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
