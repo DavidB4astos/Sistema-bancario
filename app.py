@@ -167,7 +167,7 @@ def api_withdraw():
             "withdraws_today": saques_hoje + 1
         }), 201
 
-
+##função de reset
 @app.post("/api/reset")
 def api_reset():
     with get_conn() as conn, conn.cursor() as cur:
